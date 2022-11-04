@@ -22,7 +22,9 @@ if __name__ == '__main__':
     STATION_URL = url_list['data']['en']['feeds'][1]['url']
     station_df = get_bluebikes_data(STATION_URL)
     print(station_df.head())
+    station_df.to_csv('data/bluebikes.csv', index=False)
 
     FREE_BIKE_URL = url_list['data']['en']['feeds'][2]['url']
     free_bike_df = get_bluebikes_data(FREE_BIKE_URL)
     print(free_bike_df.head())
+    free_bike_df.to_csv('data/bluebikes_free.csv', index=False)
