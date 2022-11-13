@@ -1,5 +1,5 @@
 import googlemaps
-from secrets import API_KEY
+from key import API_KEY
 
 if __name__ == '__main__':
     gmaps = googlemaps.Client(key=API_KEY)
