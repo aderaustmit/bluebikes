@@ -8,6 +8,7 @@ def main():
     """Generate distance matrix. dist[i, :] is the distance (meters) from candidate station i to all other existing
     stations """
 
+    # TODO: Filter out unnamed roads
     # load existing stations
     stations_df = pd.read_csv('data/stations.csv', header=1)
     existing_df = stations_df[stations_df['District'] == 'Salem']
