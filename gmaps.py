@@ -1,8 +1,8 @@
 import googlemaps
-from key import API_KEY
+from key import GMAPS_KEY
 
 if __name__ == '__main__':
-    gmaps = googlemaps.Client(key=API_KEY)
+    gmaps = googlemaps.Client(key=GMAPS_KEY)
 
     bb_station = (42.51825444416107, -70.89571747970832)
     market_basket_location = (42.504556602893025, -70.92013631089728)

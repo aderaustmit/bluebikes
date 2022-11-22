@@ -1,4 +1,4 @@
-from key import API_KEY
+from key import GMAPS_KEY
 import googlemaps
 import pandas as pd
 import numpy as np
@@ -17,7 +17,7 @@ def main():
     candidate_df = pd.read_csv('inputs/new_stations_df')
     candidate_stations_coord = list(candidate_df[['Latitude', 'Longitude']].itertuples(index=False, name=None))
 
-    gmaps = googlemaps.Client(key=API_KEY)
+    gmaps = googlemaps.Client(key=GMAPS_KEY)
 
     distance_list = []
     candidate_address_list = []
@@ -28,6 +28,8 @@ def main():
                                                        mode='bicycling')
         # append origin address to candidate_address_list
         origin_address = distance_matrix_result['origin_addresses'][0]
+
+        # TODO: use isitwater api?
 
         # skip if Unnamed Road
         if "Unnamed Road" in origin_address:
