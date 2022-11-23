@@ -50,7 +50,7 @@ def main():
         print(f"Random coord: {rnd_coord} is out of the water")
 
         # check if candidate station is within DISTANCE_THRESHOLD of any existing station
-        # if not, append to candidate_stations
+        # if not, append to candidate_stations.csv
         # if yes, remove the highest demand station from demand_copy and repeat
         if not any([geodesic(rnd_coord, (lat, lng)).meters < DISTANCE_THRESHOLD for lat, lng in candidate_stations]) \
                 and not any([geodesic(rnd_coord, (lat, lng)).meters < DISTANCE_THRESHOLD for lat, lng in

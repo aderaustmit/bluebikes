@@ -14,7 +14,7 @@ def main():
     existing_stations_coord = list(salem_df[['Latitude', 'Longitude']].itertuples(index=False, name=None))
 
     # load candidate stations
-    candidate_df = pd.read_csv('inputs/new_stations_df')
+    candidate_df = pd.read_csv('inputs/candidate_stations.csv')
     candidate_stations_coord = list(candidate_df[['Latitude', 'Longitude']].itertuples(index=False, name=None))
 
     gmaps = googlemaps.Client(key=GMAPS_KEY)
