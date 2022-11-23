@@ -63,8 +63,9 @@ def main():
             demand_copy.drop(highest_demand_idx, inplace=True)
 
     naive_stations_dict = {"naive_stations": candidate_stations}
-    naive_stations_df = pd.DataFrame(naive_stations_dict)
-    naive_stations_df.to_csv('inputs/naive_stations.csv', index=False)
+    naive_df = pd.DataFrame(naive_stations_dict)
+    naive_df['lat'], naive_df['lng'] = naive_df.naive_stations.str
+    naive_df.to_csv('inputs/naive_stations.csv', index=False)
 
 
 if __name__ == '__main__':
