@@ -2,6 +2,7 @@ from key import GMAPS_KEY
 import googlemaps
 import pandas as pd
 import numpy as np
+from utils import isitwater
 
 
 def main():
@@ -30,8 +31,8 @@ def main():
         origin_address = distance_matrix_result['origin_addresses'][0]
 
         # skip if Unnamed Road
-        if "Unnamed Road" in origin_address:
-            print("Unnamed road, skipping...")
+        if isitwater(candidate_station[0], candidate_station[1]):
+            print("coordinate in water, skipping")
             continue
 
         # append address list for later
@@ -47,7 +48,7 @@ def main():
 
     col_nams = list(salem_df["Number"])
     distance_df = pd.DataFrame(distance_array, columns=col_nams)
-    distance_df.to_csv('inputs/distance_matrix.csv', index=False)
+    distance_df.to_csv('inputs/candidate_existing_distance.csv', index=False)
 
     candidate_coords = []
     for candidate_address in candidate_address_list:

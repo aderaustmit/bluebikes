@@ -2,6 +2,7 @@ from key import GMAPS_KEY
 import googlemaps
 import pandas as pd
 import numpy as np
+from utils import isitwater
 
 
 def main():
@@ -25,10 +26,8 @@ def main():
                                                        destinations=attractions_coords,
                                                        mode='bicycling')
 
-        origin_address = distance_matrix_result['origin_addresses'][0]
-
-        if "Unnamed Road" in origin_address:
-            print("Unnamed road, skipping...")
+        if isitwater(candidate_station[0], candidate_station[1]):
+            print("coordinate in water skipping")
             continue
 
         # get distance from current candidate station to all other existing stations and append to list
