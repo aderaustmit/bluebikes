@@ -25,6 +25,12 @@ def main():
                                                        destinations=attractions_coords,
                                                        mode='bicycling')
 
+        origin_address = distance_matrix_result['origin_addresses'][0]
+
+        if "Unnamed Road" in origin_address:
+            print("Unnamed road, skipping...")
+            continue
+
         # get distance from current candidate station to all other existing stations and append to list
         for result in distance_matrix_result['rows'][0]['elements']:
             candidate_distances.append(result['distance']['value'])

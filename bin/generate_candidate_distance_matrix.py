@@ -29,8 +29,6 @@ def main():
         # append origin address to candidate_address_list
         origin_address = distance_matrix_result['origin_addresses'][0]
 
-        # TODO: use isitwater api?
-
         # skip if Unnamed Road
         if "Unnamed Road" in origin_address:
             print("Unnamed road, skipping...")
